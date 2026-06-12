@@ -21,12 +21,12 @@
         </template>
       </el-table-column>
       
-      <el-table-column label="%" width="80" align="right">
-         <template #default="scope">
-            <span class="percentage-text">
-              {{ totalWeight > 0 ? ((scope.row.amount / totalWeight) * 100).toFixed(1) : 0 }}%
-            </span>
-         </template>
+      <el-table-column label="成本 (NT$)" width="110" align="right">
+        <template #default="scope">
+          <span class="cost-text">
+            {{ ((scope.row.amount || 0) * (scope.row.cost || 0)).toLocaleString(undefined, { maximumFractionDigits: 0 }) }}
+          </span>
+        </template>
       </el-table-column>
       
       <el-table-column width="60" align="center" class-name="no-print">
@@ -48,7 +48,7 @@
       <div class="total-label">合計</div>
       <div class="total-values">
         <span class="total-weight">{{ (totalWeight || 0).toFixed(1) }} kg</span>
-        <span class="total-percent">100.0%</span>
+        <span class="total-cost-col">NT$ {{ (totalCost || 0).toLocaleString(undefined, { maximumFractionDigits: 0 }) }}</span>
       </div>
     </div>
 
@@ -117,7 +117,7 @@ const { removeIngredient, recalculate } = formulaStore
   color: var(--text-main);
 }
 
-.percentage-text {
+.cost-text {
   color: var(--text-secondary);
   font-weight: 500;
 }
@@ -154,8 +154,8 @@ const { removeIngredient, recalculate } = formulaStore
   text-align: right;
 }
 
-.total-percent {
-  min-width: 60px;
+.total-cost-col {
+  min-width: 90px;
   text-align: right;
 }
 

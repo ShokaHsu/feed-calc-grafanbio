@@ -103,6 +103,8 @@
 <script setup>
 import { computed } from 'vue'
 import { Document, Printer } from '@element-plus/icons-vue'
+import { ElMessage } from 'element-plus'
+import { isDesktopApp } from '@/utils/env'
 
 const props = defineProps({
   modelValue: Boolean,
@@ -151,7 +153,7 @@ const handlePrint = () => {
     document.body.removeChild(printDiv);
 }
 
-const downloadCSV = () => {
+const downloadCSV = async () => {
     const d = props.data
     if (!d) return
 
@@ -209,16 +211,34 @@ const downloadCSV = () => {
     })
 
     const csvContent = rows.map(r => r.join(',')).join('\n')
-    // UTF-8 BOM ensures Excel opens Chinese characters correctly
-    const blob = new Blob(['﻿' + csvContent], { type: 'text/csv;charset=utf-8;' })
+    const bom = '﻿'
+    const filename = `${d.meta.recipeName || '配方'}_${d.meta.date}.csv`
+
+    if (isDesktopApp() && window.__TAURI__) {
+        try {
+            const savedPath = await window.__TAURI__.invoke('save_csv', {
+                content: bom + csvContent,
+                filename
+            })
+            ElMessage.success(`已儲存至 ${savedPath}`)
+        } catch (e) {
+            ElMessage.error('儲存失敗: ' + e)
+        }
+        return
+    }
+
+    // Browser fallback
+    const blob = new Blob([bom + csvContent], { type: 'text/csv;charset=utf-8;' })
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    link.download = `${d.meta.recipeName || '配方'}_${d.meta.date}.csv`
+    link.download = filename
     document.body.appendChild(link)
     link.click()
-    document.body.removeChild(link)
-    URL.revokeObjectURL(url)
+    setTimeout(() => {
+        document.body.removeChild(link)
+        URL.revokeObjectURL(url)
+    }, 500)
 }
 </script>
 
