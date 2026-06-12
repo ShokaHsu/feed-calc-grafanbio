@@ -215,7 +215,7 @@ const downloadCSV = async () => {
 
     if (window.__TAURI__) {
         try {
-            const savedPath = await window.__TAURI__.invoke('save_csv', {
+            const savedPath = await window.__TAURI__.core.invoke('save_csv', {
                 content: bom + csvContent,
                 filename
             })
