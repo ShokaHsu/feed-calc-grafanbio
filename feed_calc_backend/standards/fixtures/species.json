@@ -1,0 +1,17 @@
+[
+  {
+    "model": "standards.species",
+    "pk": 101,
+    "fields": { "slug": "layer", "name_zh": "蛋雞", "name_en": "Layer" }
+  },
+  {
+    "model": "standards.species",
+    "pk": 201,
+    "fields": { "slug": "broiler", "name_zh": "肉雞", "name_en": "Broiler" }
+  },
+  {
+    "model": "standards.species",
+    "pk": 301,
+    "fields": { "slug": "swine", "name_zh": "肉豬", "name_en": "Swine" }
+  }
+]

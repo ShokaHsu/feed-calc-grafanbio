@@ -1,0 +1,298 @@
+/* src/assets/main-layout.css */
+
+/* =========================================
+   1. CSS 變數系統 (Theming System)
+   未來要換給不同客戶 (例如大樹牧場)，只需修改這裡的顏色
+   ========================================= */
+:root {
+  /* 品牌主色 (Primary) - Clean Light */
+  --brand-color: #2563eb;
+  --brand-hover: #1d4ed8;
+  
+  /* 功能色 */
+  --success-color: #16a34a;
+  --warning-color: #d97706;
+  --danger-color: #dc2626;
+  --info-color: #64748b;
+
+  /* 文字與背景 */
+  --text-main: #1e293b;
+  --text-regular: #334155;
+  --text-secondary: #64748b;
+  --text-placeholder: #94a3b8;
+  --bg-body: #f1f5f9;
+  --bg-card: #ffffff;
+  
+  /* 佈局與邊框 */
+  --header-height: 54px;
+  --page-padding: 24px;
+  --border-radius-card: 12px;
+  --border-radius-input: 8px;
+  --border-color: #e2e8f0;
+  --shadow-card: 0 1px 4px rgba(0,0,0,0.06);
+
+  /* 字體尺寸 (維持 16pt 核心設計) */
+  --el-font-size-base: 16pt;  
+  --el-font-size-large: 18pt; 
+  --el-font-size-small: 14pt; 
+  --el-font-size-extra-large: 20pt;
+
+  /* 元件尺寸 (維持 50px 核心設計) */
+  --el-component-size: 50px;
+  --el-component-size-large: 60px;
+  --el-component-size-small: 40px;
+  
+  /* 表格設定 */
+  --el-table-row-height: 58px;
+  --el-table-header-bg-color: #f8fafc;
+}
+
+/* =========================================
+   2. 全域重置 (Global Reset)
+   ========================================= */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6; 
+  font-size: var(--el-font-size-base);
+  display: block !important; 
+  place-items: normal !important;
+  min-height: 100vh;
+  width: 100%;
+}
+
+#app {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+}
+
+/* =========================================
+   3. 通用佈局容器 (Layout Containers)
+   ========================================= */
+.page-container {
+  padding: var(--page-padding);
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: calc(100vh - var(--header-height));
+}
+
+.toolbar {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.input-label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-secondary);
+  display: block;
+}
+
+/* =========================================
+   4. Element Plus 優化 (Overrides)
+   ========================================= */
+
+/* 4.1 表格 restyle */
+.el-table {
+  border-radius: var(--border-radius-card);
+  --el-table-border-color: #f1f5f9;
+  font-size: var(--el-font-size-base) !important;
+}
+
+.el-table th {
+  background: var(--el-table-header-bg-color) !important;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--text-placeholder) !important;
+  letter-spacing: 0.05em;
+  height: 48px !important;
+}
+
+.el-table tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.el-table td {
+  height: var(--el-table-row-height);
+  padding: 8px 0;
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: #f1f5f9 !important;
+}
+
+/* 4.2 表單與輸入框 restyle */
+.el-input__wrapper {
+  background-color: #f8fafc !important;
+  box-shadow: 0 0 0 1px var(--border-color) inset !important;
+  border-radius: var(--border-radius-input) !important;
+}
+
+.el-input__wrapper.is-focus {
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 1px #93c5fd inset !important;
+}
+
+.el-input__inner {
+  font-size: var(--el-font-size-base) !important;
+  color: var(--text-main);
+}
+
+/* 4.3 按鈕 restyle */
+.el-button--primary {
+  --el-button-bg-color: var(--brand-color);
+  --el-button-border-color: var(--brand-color);
+  --el-button-hover-bg-color: var(--brand-hover);
+  --el-button-hover-border-color: var(--brand-hover);
+  border-radius: var(--border-radius-input);
+}
+
+.el-button {
+  font-weight: 600;
+  font-size: var(--el-font-size-base) !important;
+  border-radius: var(--border-radius-input);
+}
+
+/* 4.5 卡片 restyle */
+.el-card {
+  border-radius: var(--border-radius-card) !important;
+  border: none !important;
+  box-shadow: var(--shadow-card) !important;
+  overflow: visible !important;
+}
+
+.el-card__header {
+  padding: 16px 24px !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  background-color: transparent !important;
+  font-weight: 700;
+  font-size: var(--el-font-size-large);
+  color: var(--text-main);
+}
+
+.el-card__body {
+  padding: 24px !important;
+}
+
+/* =========================================
+   8. Responsive Breakpoint (900px)
+   ========================================= */
+@media (max-width: 900px) {
+  .page-container {
+    padding: 16px;
+  }
+  
+  .panels {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 4.6 彈窗 (Dialog) 適配 */
+.el-dialog__title {
+  font-size: var(--el-font-size-large) !important;
+  font-weight: bold;
+}
+.el-dialog__body {
+  font-size: var(--el-font-size-base) !important;
+  padding: 20px 25px !important;
+}
+
+/* =========================================
+   5. 報表預覽樣式 (Report Preview)
+   ========================================= */
+.preview-container {
+  padding: 30px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 16pt; /* 報表也同步放大 */
+}
+
+.report-table th, .report-table td {
+  border: 1px solid #ddd;
+  padding: 10px 15px; /* 增加內距 */
+  text-align: left;
+}
+
+.report-table thead th {
+  background-color: #f5f7fa;
+  font-weight: bold;
+  color: #333;
+}
+
+.section-title {
+  border-left: 5px solid var(--brand-color);
+  padding-left: 12px;
+  margin: 30px 0 15px 0;
+  font-size: 20pt; /* 標題加大 */
+  font-weight: bold;
+  background: #f9f9f9;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* =========================================
+   6. 列印專用樣式 (Print Styles)
+   ========================================= */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  body > *:not(#print-wrapper) {
+    display: none !important;
+  }
+  
+  .el-overlay, .el-dialog__header, .el-dialog__footer, .no-print, .toolbar {
+    display: none !important;
+  }
+
+  #print-wrapper, #export-content {
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 99999;
+    color: #333;
+    /* 列印時字體稍微縮小一點以節省紙張，或者保持 14pt */
+    font-size: 14pt !important; 
+  }
+  
+  .report-table {
+      font-size: 12pt !important; /* 列印表格內容縮小至 12pt 比較剛好 */
+  }
+
+  .report-table th, .report-table td {
+    border: 1px solid #333 !important;
+  }
+  
+  .section-title {
+    border-left-color: #333 !important;
+    background: none !important;
+    font-size: 16pt !important;
+  }
+
+  .no-print-input { display: none !important; }
+  .only-print { display: inline-block !important; }
+}

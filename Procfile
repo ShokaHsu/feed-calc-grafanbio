@@ -1,0 +1,1 @@
+web: cd feed-calc-backend && gunicorn config.wsgi:application --log-file -

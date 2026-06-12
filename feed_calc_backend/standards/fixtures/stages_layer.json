@@ -1,0 +1,12 @@
+[
+  {
+    "model": "standards.productionstage",
+    "pk": 111,
+    "fields": { "species": 101, "name_zh": "產蛋前", "name_en": "Pre-lay", "order": 1 }
+  },
+  {
+    "model": "standards.productionstage",
+    "pk": 112,
+    "fields": { "species": 101, "name_zh": "產蛋期", "name_en": "Laying", "order": 2 }
+  }
+]

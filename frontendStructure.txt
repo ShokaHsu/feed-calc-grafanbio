@@ -1,0 +1,24 @@
+src/
+├── stores/
+│   └── useFormulaStore.js      <-- [核心大腦] 存放 formulaItems, calculated, recalculate()
+│
+├── components/
+│   ├── formula/
+│   │   ├── FormulaTargetSelector.vue  <-- 步驟1
+│   │   ├── IngredientPicker.vue       <-- 步驟2
+│   │   ├── FormulaTable.vue           <-- 配方列表 (桌面版 UI)
+│   │   ├── FormulaListMobile.vue      <-- 配方列表 (手機版 UI, 未來開發)
+│   │   ├── NutrientAnalysisPanel.vue  <-- 營養分析容器
+│   │   └── FormulaToolbar.vue         <-- 工具列
+│   │
+│   ├── dialogs/
+│   │   ├── LoadFormulaDialog.vue      <-- 載入配方彈窗
+│   │   ├── SaveFormulaDialog.vue      <-- 儲存配方彈窗
+│   │   └── CustomerCreateDialog.vue   <-- 建立客戶彈窗
+│   │
+│   └── panels/ (維持現狀)
+│       ├── SwinePanel.vue
+│       └── ...
+│
+└── views/
+    └── FormulaCalculatorPage.vue      <-- [原本的檔案] 現在只負責排版

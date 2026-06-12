@@ -1,0 +1,29 @@
+{
+  "name": "feed-calc-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:desktop": "vite --mode desktop",
+    "build": "vite build",
+    "build:desktop": "vite build --mode desktop",
+    "build:mobile": "vite build --mode mobile",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "@tauri-apps/plugin-shell": "^2.3.5",
+    "axios": "^1.13.2",
+    "element-plus": "^2.11.8",
+    "pinia": "^3.0.4",
+    "vue": "^3.5.24",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.9.6",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.2.4"
+  }
+}

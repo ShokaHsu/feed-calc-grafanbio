@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"C:/202511/05_sideproject/feed_calc_project\" add \"docs/superpowers/specs/2026-05-12-desktop-packaging-pipeline.md\")",
+      "Bash(git -C C:/202511/05_sideproject/feed_calc_project commit -m ' *)",
+      "Bash(python manage.py help)"
+    ]
+  }
+}

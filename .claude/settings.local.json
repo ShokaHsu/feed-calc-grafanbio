@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(.venv/Scripts/python.exe manage.py makemigrations accounts --settings=config.settings.dev)",
+      "Bash(.venv/Scripts/python.exe manage.py migrate --settings=config.settings.dev)",
+      "Bash(.venv/Scripts/python.exe manage.py check --settings=config.settings.dev)",
+      "Bash(xargs ls *)",
+      "WebFetch(domain:agridoc.atlassian.net)",
+      "Bash(Get-ChildItem -Path \"C:\\\\202511\\\\05_sideproject\\\\feed_calc_project\\\\feed_calc_frontend\\\\src\" -Recurse)",
+      "Bash(Select-Object FullName)",
+      "Bash(ConvertTo-Csv -NoTypeInformation)",
+      "Bash(Select-Object -Skip 1)",
+      "Bash(Get-ChildItem -Path \"C:\\\\202511\\\\05_sideproject\\\\feed_calc_project\\\\feed_calc_frontend\\\\src\" -Recurse -Force)",
+      "PowerShell(Get-ChildItem \"C:\\\\202511\\\\05_sideproject\\\\feed_calc_project\\\\feed_calc_backend\" -Recurse -Filter \"settings.py\" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch '\\\\.venv' })",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "PowerShell(railway *)",
+      "Bash(git push *)",
+      "Bash(python *)"
+    ]
+  }
+}

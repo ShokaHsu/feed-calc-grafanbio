@@ -1,0 +1,14 @@
+{
+  "identifier": "allow-sidecar",
+  "description": "Allow sidecar execution",
+  "permissions": [
+    {
+      "identifier": "shell:allow-spawn",
+      "allow": [
+        {
+          "sidecar": "bin/feed_calc_api"
+        }
+      ]
+    }
+  ]
+}

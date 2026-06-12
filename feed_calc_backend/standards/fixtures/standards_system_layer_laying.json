@@ -1,0 +1,14 @@
+[
+  {"model":"standards.nutrientstandard","pk":3000,"fields":{
+    "species":100,"stage":1101,"nutrient":2000,"scope":"system","organization_id":null,"user":null,
+    "value_min":null,"value_target":2750,"value_max":null,"note":"Layer-Laying ME"
+  }},
+  {"model":"standards.nutrientstandard","pk":3001,"fields":{
+    "species":100,"stage":1101,"nutrient":2001,"scope":"system","organization_id":null,"user":null,
+    "value_min":15.5,"value_target":16.5,"value_max":17.5,"note":"Layer-Laying CP"
+  }},
+  {"model":"standards.nutrientstandard","pk":3002,"fields":{
+    "species":100,"stage":1101,"nutrient":2002,"scope":"system","organization_id":null,"user":null,
+    "value_min":null,"value_target":0.85,"value_max":null,"note":"Layer-Laying Lys"
+  }}
+]

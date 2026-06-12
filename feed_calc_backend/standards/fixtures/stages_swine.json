@@ -1,0 +1,10 @@
+[
+  { "model": "standards.productionstage", "pk": 311, "fields": { "species": 301, "name_zh": "種公豬", "name_en": "Boar", "order": 1 }},
+  { "model": "standards.productionstage", "pk": 312, "fields": { "species": 301, "name_zh": "新女豬", "name_en": "Gilt", "order": 2 }},
+  { "model": "standards.productionstage", "pk": 313, "fields": { "species": 301, "name_zh": "母前", "name_en": "Gestation", "order": 3 }},
+  { "model": "standards.productionstage", "pk": 314, "fields": { "species": 301, "name_zh": "母後", "name_en": "Lactation", "order": 4 }},
+  { "model": "standards.productionstage", "pk": 315, "fields": { "species": 301, "name_zh": "人工乳", "name_en": "Milk Replacer", "order": 5 }},
+  { "model": "standards.productionstage", "pk": 316, "fields": { "species": 301, "name_zh": "哺乳料", "name_en": "Pre-starter", "order": 6 }},
+  { "model": "standards.productionstage", "pk": 317, "fields": { "species": 301, "name_zh": "仔豬料", "name_en": "Starter/Grower", "order": 7 }},
+  { "model": "standards.productionstage", "pk": 318, "fields": { "species": 301, "name_zh": "肉豬料", "name_en": "Finisher", "order": 8 }}
+]

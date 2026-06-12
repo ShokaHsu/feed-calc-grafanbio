@@ -1,0 +1,31 @@
+蛋雞 (Layer → 100 系列)
+
+    111 → 產蛋前 (Pre-lay)
+
+    112 → 產蛋期 (Laying)
+
+肉雞 (Broiler → 200 系列)
+
+    211 → 第一階段 (Starter)
+
+    212 → 第二階段 (Grower)
+
+    213 → 第三階段 (Finisher)
+
+肉豬 (Swine → 300 系列)
+
+    311 → 種公豬 (Boar)
+
+    312 → 新女豬 (Gilt)
+
+    313 → 母豬懷孕 (Gestation)
+
+    314 → 母豬哺乳 (Lactation)
+
+    315 → 人工乳 (Milk Replacer)
+
+    316 → 哺乳料 (Pre-starter)
+
+    317 → 仔豬料 (Starter/Grower)
+
+    318 → 肉豬料 (Finisher)

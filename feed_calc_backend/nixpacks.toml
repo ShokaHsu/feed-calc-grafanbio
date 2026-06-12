@@ -1,0 +1,5 @@
+[variables]
+# SECRET_KEY is a runtime-only variable — do not pass it as a build ARG.
+# Django does not need it during the image build phase; it is injected
+# by Railway at container start time via the Variables tab.
+NIXPACKS_NO_BUILD_ENV = "1"

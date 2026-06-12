@@ -1,0 +1,17 @@
+[
+  {
+    "model": "standards.productionstage",
+    "pk": 211,
+    "fields": { "species": 201, "name_zh": "第一期", "name_en": "Starter", "order": 1 }
+  },
+  {
+    "model": "standards.productionstage",
+    "pk": 212,
+    "fields": { "species": 201, "name_zh": "第二期", "name_en": "Grower", "order": 2 }
+  },
+  {
+    "model": "standards.productionstage",
+    "pk": 213,
+    "fields": { "species": 201, "name_zh": "第三期", "name_en": "Finisher", "order": 3 }
+  }
+]

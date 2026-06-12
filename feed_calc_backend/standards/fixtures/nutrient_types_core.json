@@ -1,0 +1,55 @@
+[
+  {"model":"standards.nutrienttype","pk":2000,"fields":{"key":"me","name_zh":"代謝能","unit":"kcal/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2001,"fields":{"key":"cp","name_zh":"粗蛋白","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2002,"fields":{"key":"lys","name_zh":"離胺酸","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2003,"fields":{"key":"met","name_zh":"蛋胺酸","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2004,"fields":{"key":"ca","name_zh":"鈣","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2005,"fields":{"key":"ap","name_zh":"有效磷","unit":"%","data_type":"number"}},
+
+  {"model":"standards.nutrienttype","pk":2006,"fields":{"key":"met_cys","name_zh":"蛋胺酸+半胱胺酸","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2007,"fields":{"key":"thr","name_zh":"蘇胺酸","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2008,"fields":{"key":"trp","name_zh":"色胺酸","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2009,"fields":{"key":"ile","name_zh":"異白胺酸","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2010,"fields":{"key":"leu","name_zh":"白胺酸","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2011,"fields":{"key":"val","name_zh":"纈胺酸","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2012,"fields":{"key":"arg","name_zh":"精胺酸","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2013,"fields":{"key":"his","name_zh":"組胺酸","unit":"%","data_type":"number"}},
+
+ 
+  {"model":"standards.nutrienttype","pk":2014,"fields":{"key":"p","name_zh":"總磷","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2016,"fields":{"key":"npp","name_zh":"非植酸磷（nPP）","unit":"%","data_type":"number"}},   
+  {"model":"standards.nutrienttype","pk":2017,"fields":{"key":"sttd_p","name_zh":"標準化全道消化磷（STTD‑P）","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2018,"fields":{"key":"ca_p_ratio","name_zh":"鈣磷比（Ca:P）","unit":"ratio","data_type":"number"}},
+
+  
+  {"model":"standards.nutrienttype","pk":2019,"fields":{"key":"na","name_zh":"鈉","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2020,"fields":{"key":"k","name_zh":"鉀","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2021,"fields":{"key":"cl","name_zh":"氯","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2022,"fields":{"key":"mg","name_zh":"鎂","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2023,"fields":{"key":"s","name_zh":"硫","unit":"%","data_type":"number"}},
+
+  
+  {"model":"standards.nutrienttype","pk":2024,"fields":{"key":"fe","name_zh":"鐵","unit":"mg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2025,"fields":{"key":"cu","name_zh":"銅","unit":"mg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2026,"fields":{"key":"mn","name_zh":"錳","unit":"mg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2027,"fields":{"key":"zn","name_zh":"鋅","unit":"mg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2028,"fields":{"key":"se","name_zh":"硒","unit":"μg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2029,"fields":{"key":"i","name_zh":"碘","unit":"μg/kg","data_type":"number"}},
+
+  
+  {"model":"standards.nutrienttype","pk":2030,"fields":{"key":"vit_a","name_zh":"維生素A","unit":"IU/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2031,"fields":{"key":"vit_d3","name_zh":"維生素D3","unit":"IU/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2032,"fields":{"key":"vit_e","name_zh":"維生素E","unit":"mg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2033,"fields":{"key":"vit_k","name_zh":"維生素K","unit":"mg/kg","data_type":"number"}},
+
+  
+  {"model":"standards.nutrienttype","pk":2034,"fields":{"key":"vit_b1","name_zh":"維生素B1（硫胺素）","unit":"mg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2035,"fields":{"key":"vit_b2","name_zh":"維生素B2（核黃素）","unit":"mg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2036,"fields":{"key":"niacin","name_zh":"菸鹼酸（Niacin）","unit":"mg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2037,"fields":{"key":"pantothenic","name_zh":"泛酸（B5）","unit":"mg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2038,"fields":{"key":"vit_b6","name_zh":"維生素B6（吡哆醇）","unit":"mg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2039,"fields":{"key":"biotin","name_zh":"生物素（B7）","unit":"mg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2040,"fields":{"key":"folic","name_zh":"葉酸（B9）","unit":"mg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2041,"fields":{"key":"vit_b12","name_zh":"維生素B12（鈷胺素）","unit":"μg/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2042,"fields":{"key":"choline","name_zh":"膽鹼","unit":"mg/kg","data_type":"number"}}
+]

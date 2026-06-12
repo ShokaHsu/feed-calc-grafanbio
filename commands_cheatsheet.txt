@@ -1,0 +1,159 @@
+===========================================================
+   飼料配方系統 (Feed Calc Project) - 常用指令小抄
+===========================================================
+
+【 重要提示 】
+1. 執行後端指令前，請確認終端機路徑在 feed-calc-backend 資料夾
+2. 執行前端指令前，請確認終端機路徑在 feed-calc-frontend 資料夾
+3. 建議在 VS Code 開啟兩個終端機分頁，一個跑後端，一個跑前端
+
+===========================================================
+   [1] 後端 Backend (Django)
+   路徑: cd feed-calc-backend
+===========================================================
+
+### 1. 啟動與環境
+啟動虛擬環境 (Windows):
+  .\.venv\Scripts\activate
+
+啟動後端伺服器 (預設 Port 8000):
+  python manage.py runserver
+
+安裝 requirements.txt 中的所有套件:
+  pip install -r requirements.txt
+
+更新需求清單
+  pip freeze > requirements.txt
+
+將目前安裝的套件輸出成清單:
+  pip freeze > requirements.txt
+
+### 2. 資料庫管理
+製作遷移檔 (當你有修改 models.py 時):
+  python manage.py makemigrations
+
+執行遷移 (將修改真正寫入資料庫):
+  python manage.py migrate
+
+建立最高權限管理員 (Superuser):
+  python manage.py createsuperuser
+
+打包成執行檔 (PyInstaller)
+pip install pyinstaller
+pyinstaller --name=FeedCalc_v1.0 --clean --onefile --add-data "../feed-calc-frontend/dist;feed-calc-frontend/dist" manage.py
+
+### 3. 資料匯入 (專案專屬指令)
+從 Excel 匯入原料資料:
+  python manage.py import_ingredients
+
+匯入 NRC 營養標準 (JSON):
+  python manage.py load_nrc_json
+
+初始化 NRC 豬隻標準 (寫死在程式碼的版本):
+  python manage.py init_nrc_swine
+
+DATABASE_URL
+postgresql://feed_calc_db_user:dGKj2IoaVvzenLIuxsfYNHUHabMD7aiP@dpg-d4j621f5r7bs73f66gtg-a/feed_calc_db
+
+===========================================================
+   [2] 前端 Frontend (Vue.js / Vite)
+   路徑: cd feed-calc-frontend
+===========================================================
+
+### 1. 啟動與安裝
+安裝依賴套件 (初次下載或 package.json 有變動時):
+  npm install
+
+啟動前端開發伺服器:
+  npm run dev
+
+### 2. 套件管理
+安裝新套件 (範例: 安裝圖表庫):
+  npm install chart.js
+
+移除套件:
+  npm uninstall <套件名稱>
+
+### 3. 發布部署
+打包專案 (產生 dist 資料夾，用於正式上線):
+  npm run build
+
+===========================================================
+   [3] 版本控制 (Git / GitHub)
+   路徑: 專案根目錄 (feed_calc_project)
+===========================================================
+
+查看目前檔案狀態 (紅字代表未暫存，綠字代表已暫存):
+  git status
+
+將所有變更加入暫存區:
+  git add .
+
+提交變更 (並附上說明):
+  git commit -m "這裡寫你的修改說明"
+
+推送到 GitHub (主要分支):
+  git push origin main
+
+若發生衝突或錯誤，拉取遠端最新版本:
+  git pull origin main
+
+===========================================================
+   [4] 常見狀況排除
+===========================================================
+
+Q: 終端機出現 "禁止執行指令碼" 錯誤?
+A: 執行指令: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+Q: 想要停止正在跑的伺服器?
+A: 按下 Ctrl + C
+
+Q: 想要清空終端機畫面?
+A: 輸入 cls (Windows) 或 clear (Mac/Linux)
+
+===========================================================
+   [5] 常用 Django + Railway 組合
+===========================================================
+
+1. 安裝與登入 (Installation & Login)
+
+安裝 CLI (透過 npm):
+	npm i -g @railway/cli
+
+登入帳號 (瀏覽器驗證):
+	railway login
+
+登出:
+	railway logout
+
+2. 專案連結 (Project Linking)
+
+連結現有專案 (互動式選單):
+	railway link
+
+查看目前連結狀態:
+	railway status
+
+解除連結:
+	railway unlink
+
+3.執行指令 (Running Commands)
+
+ 在雲端環境執行指令 (One-off):
+	railway run <指令>
+	railway run python manage.py migrate
+	railway run python manage.py createsuperuser
+
+進入互動式 Shell (連線到伺服器):
+	railway shell
+
+4.常用 Django + Railway 組合技
+
+本地開發，連線雲端資料庫:
+	railway run python manage.py runserver
+
+更新雲端資料庫結構:
+	railway run python manage.py migrate
+
+不要依賴 .env 檔案，我們直接在終端機設定變數並執行
+	$env:DATABASE_URL="postgresql://postgres:您的密碼@roundhouse.proxy.rlwy.net:12345/railway"

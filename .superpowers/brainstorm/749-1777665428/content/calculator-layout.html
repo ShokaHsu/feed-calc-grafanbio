@@ -1,0 +1,159 @@
+<h2>Formula Calculator — main layout</h2>
+<p class="subtitle">How should the ingredient table and nutrient analysis panel sit together?</p>
+
+<div class="split">
+
+  <div class="mockup">
+    <div class="mockup-header">A — Side by Side (current)</div>
+    <div class="mockup-body" style="background:#f8fafc;padding:10px;font-family:'Microsoft JhengHei',sans-serif;min-height:240px;">
+      <!-- Top selector bar -->
+      <div style="background:#fff;border-radius:8px;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.06);margin-bottom:10px;display:flex;gap:8px;align-items:center;">
+        <div style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:6px;padding:6px 10px;font-size:11px;color:#1e293b;flex:1;">豬隻</div>
+        <div style="color:#94a3b8;font-size:10px;">›</div>
+        <div style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:6px;padding:6px 10px;font-size:11px;color:#1e293b;flex:2;">育成豬 (30-60kg)</div>
+        <div style="color:#94a3b8;font-size:10px;">›</div>
+        <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:6px 10px;font-size:11px;color:#2563eb;flex:2;">NRC 豬隻標準 2012</div>
+      </div>
+      <!-- Two columns -->
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:10px;">
+        <!-- Left: ingredient table -->
+        <div style="background:#fff;border-radius:8px;padding:10px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+          <div style="font-size:11px;font-weight:700;color:#1e293b;margin-bottom:8px;">原料配方</div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:3px;margin-bottom:4px;">
+            <div style="font-size:9px;color:#94a3b8;font-weight:600;">原料名稱</div>
+            <div style="font-size:9px;color:#94a3b8;font-weight:600;">用量(kg)</div>
+            <div style="font-size:9px;color:#94a3b8;font-weight:600;">佔比(%)</div>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:3px;margin-bottom:3px;background:#f8fafc;border-radius:4px;padding:4px;">
+            <div style="font-size:10px;color:#1e293b;">玉米</div>
+            <div style="font-size:10px;color:#1e293b;">60.0</div>
+            <div style="font-size:10px;color:#64748b;">60.0%</div>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:3px;margin-bottom:3px;padding:4px;">
+            <div style="font-size:10px;color:#1e293b;">豆粕</div>
+            <div style="font-size:10px;color:#1e293b;">25.0</div>
+            <div style="font-size:10px;color:#64748b;">25.0%</div>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:3px;background:#f8fafc;border-radius:4px;padding:4px;">
+            <div style="font-size:10px;color:#1e293b;">魚粉</div>
+            <div style="font-size:10px;color:#1e293b;">5.0</div>
+            <div style="font-size:10px;color:#64748b;">5.0%</div>
+          </div>
+          <div style="border-top:1px solid #e2e8f0;margin-top:6px;padding-top:6px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3px;">
+            <div style="font-size:10px;font-weight:700;color:#1e293b;">合計</div>
+            <div style="font-size:10px;font-weight:700;color:#1e293b;">100.0</div>
+            <div style="font-size:10px;color:#2563eb;">100%</div>
+          </div>
+        </div>
+        <!-- Right: nutrient panel -->
+        <div style="background:#fff;border-radius:8px;padding:10px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+          <div style="font-size:11px;font-weight:700;color:#1e293b;margin-bottom:8px;">營養分析</div>
+          <div style="margin-bottom:5px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:2px;">
+              <div style="font-size:10px;color:#64748b;">粗蛋白質</div>
+              <div style="font-size:10px;font-weight:600;color:#1e293b;">18.4%</div>
+            </div>
+            <div style="background:#e2e8f0;border-radius:3px;height:5px;"><div style="background:#2563eb;width:76%;height:100%;border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom:5px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:2px;">
+              <div style="font-size:10px;color:#64748b;">代謝能</div>
+              <div style="font-size:10px;font-weight:600;color:#1e293b;">3150</div>
+            </div>
+            <div style="background:#e2e8f0;border-radius:3px;height:5px;"><div style="background:#10b981;width:89%;height:100%;border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom:5px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:2px;">
+              <div style="font-size:10px;color:#64748b;">粗脂肪</div>
+              <div style="font-size:10px;font-weight:600;color:#f59e0b;">8.2%</div>
+            </div>
+            <div style="background:#e2e8f0;border-radius:3px;height:5px;"><div style="background:#f59e0b;width:110%;height:100%;border-radius:3px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:2px;">
+              <div style="font-size:10px;color:#64748b;">離胺酸</div>
+              <div style="font-size:10px;font-weight:600;color:#ef4444;">0.72%</div>
+            </div>
+            <div style="background:#e2e8f0;border-radius:3px;height:5px;"><div style="background:#ef4444;width:55%;height:100%;border-radius:3px;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">B — Stacked: Table top, Nutrients bottom</div>
+    <div class="mockup-body" style="background:#f8fafc;padding:10px;font-family:'Microsoft JhengHei',sans-serif;min-height:240px;">
+      <!-- Top selector bar -->
+      <div style="background:#fff;border-radius:8px;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,0.06);margin-bottom:8px;display:flex;gap:8px;align-items:center;">
+        <div style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:6px;padding:6px 10px;font-size:11px;color:#1e293b;flex:1;">豬隻</div>
+        <div style="color:#94a3b8;font-size:10px;">›</div>
+        <div style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:6px;padding:6px 10px;font-size:11px;color:#1e293b;flex:2;">育成豬 (30-60kg)</div>
+        <div style="color:#94a3b8;font-size:10px;">›</div>
+        <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:6px 10px;font-size:11px;color:#2563eb;flex:2;">NRC 豬隻標準 2012</div>
+      </div>
+      <!-- Top: ingredient table full width -->
+      <div style="background:#fff;border-radius:8px;padding:10px;box-shadow:0 1px 4px rgba(0,0,0,0.06);margin-bottom:8px;">
+        <div style="font-size:11px;font-weight:700;color:#1e293b;margin-bottom:6px;">原料配方</div>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3px;margin-bottom:4px;">
+          <div style="font-size:9px;color:#94a3b8;font-weight:600;">原料名稱</div>
+          <div style="font-size:9px;color:#94a3b8;font-weight:600;">用量(kg)</div>
+          <div style="font-size:9px;color:#94a3b8;font-weight:600;">佔比(%)</div>
+          <div style="font-size:9px;color:#94a3b8;font-weight:600;">成本</div>
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3px;background:#f8fafc;border-radius:4px;padding:4px;margin-bottom:2px;">
+          <div style="font-size:10px;color:#1e293b;">玉米</div>
+          <div style="font-size:10px;">60.0</div><div style="font-size:10px;color:#64748b;">60.0%</div><div style="font-size:10px;color:#64748b;">$420</div>
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3px;padding:4px;margin-bottom:2px;">
+          <div style="font-size:10px;color:#1e293b;">豆粕</div>
+          <div style="font-size:10px;">25.0</div><div style="font-size:10px;color:#64748b;">25.0%</div><div style="font-size:10px;color:#64748b;">$300</div>
+        </div>
+      </div>
+      <!-- Bottom: nutrients as horizontal chips -->
+      <div style="background:#fff;border-radius:8px;padding:10px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+        <div style="font-size:11px;font-weight:700;color:#1e293b;margin-bottom:8px;">營養分析</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;">
+          <div style="background:#eff6ff;border-radius:6px;padding:6px 8px;text-align:center;">
+            <div style="font-size:9px;color:#64748b;margin-bottom:2px;">粗蛋白質</div>
+            <div style="font-size:12px;font-weight:700;color:#2563eb;">18.4%</div>
+          </div>
+          <div style="background:#f0fdf4;border-radius:6px;padding:6px 8px;text-align:center;">
+            <div style="font-size:9px;color:#64748b;margin-bottom:2px;">代謝能</div>
+            <div style="font-size:12px;font-weight:700;color:#10b981;">3150</div>
+          </div>
+          <div style="background:#fffbeb;border-radius:6px;padding:6px 8px;text-align:center;">
+            <div style="font-size:9px;color:#64748b;margin-bottom:2px;">粗脂肪</div>
+            <div style="font-size:12px;font-weight:700;color:#f59e0b;">8.2%</div>
+          </div>
+          <div style="background:#fef2f2;border-radius:6px;padding:6px 8px;text-align:center;">
+            <div style="font-size:9px;color:#64748b;margin-bottom:2px;">離胺酸</div>
+            <div style="font-size:12px;font-weight:700;color:#ef4444;">0.72%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:20px;">
+<div class="options">
+  <div class="option" data-choice="side-by-side" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Side by Side (keep current)</h3>
+      <p>Both panels visible at once — user sees ingredient changes update nutrients in real time without scrolling.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="stacked" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Stacked</h3>
+      <p>Table gets full width (more columns visible). Nutrients shown as a compact card grid below. Better if formula has many ingredients.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<p class="subtitle" style="margin-top:12px;">Click your preference, then reply in the terminal.</p>

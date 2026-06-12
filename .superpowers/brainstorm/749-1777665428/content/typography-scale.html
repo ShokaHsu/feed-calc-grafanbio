@@ -1,0 +1,71 @@
+<h2>Font size & density</h2>
+<p class="subtitle">The current app uses oversized fonts for accessibility. Which density feels right for a professional desktop tool?</p>
+
+<div class="split">
+
+  <div class="mockup">
+    <div class="mockup-header">A — Current: Large (16pt base)</div>
+    <div class="mockup-body" style="background:#f8fafc;padding:14px;font-family:'Microsoft JhengHei',sans-serif;">
+      <div style="background:#fff;border-radius:10px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+        <div style="font-size:18px;font-weight:700;color:#1e293b;margin-bottom:14px;">配方計算</div>
+        <div style="margin-bottom:12px;">
+          <div style="font-size:14px;font-weight:700;color:#303133;margin-bottom:6px;">畜種</div>
+          <div style="background:#f1f5f9;border:1px solid #dcdfe6;border-radius:8px;padding:12px 14px;font-size:16px;color:#1e293b;display:flex;justify-content:space-between;align-items:center;">
+            豬隻 <span style="color:#94a3b8;font-size:12px;">▼</span>
+          </div>
+        </div>
+        <div style="margin-bottom:12px;">
+          <div style="font-size:14px;font-weight:700;color:#303133;margin-bottom:6px;">生長階段</div>
+          <div style="background:#f1f5f9;border:1px solid #dcdfe6;border-radius:8px;padding:12px 14px;font-size:16px;color:#1e293b;display:flex;justify-content:space-between;align-items:center;">
+            育成豬 (30-60kg) <span style="color:#94a3b8;font-size:12px;">▼</span>
+          </div>
+        </div>
+        <div style="background:#e8f4fd;border-radius:8px;padding:10px 14px;font-size:14px;color:#2563eb;">粗蛋白質目標：18.0%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">B — Normalized: Compact (13px base)</div>
+    <div class="mockup-body" style="background:#f8fafc;padding:14px;font-family:'Microsoft JhengHei',sans-serif;">
+      <div style="background:#fff;border-radius:10px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+        <div style="font-size:15px;font-weight:700;color:#1e293b;margin-bottom:12px;">配方計算</div>
+        <div style="margin-bottom:10px;">
+          <div style="font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">畜種</div>
+          <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:7px 12px;font-size:13px;color:#1e293b;display:flex;justify-content:space-between;align-items:center;">
+            豬隻 <span style="color:#94a3b8;font-size:10px;">▼</span>
+          </div>
+        </div>
+        <div style="margin-bottom:10px;">
+          <div style="font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">生長階段</div>
+          <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:7px 12px;font-size:13px;color:#1e293b;display:flex;justify-content:space-between;align-items:center;">
+            育成豬 (30-60kg) <span style="color:#94a3b8;font-size:10px;">▼</span>
+          </div>
+        </div>
+        <div style="background:#eff6ff;border-radius:6px;padding:7px 12px;font-size:12px;color:#2563eb;">粗蛋白質目標：18.0%</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:20px;">
+<div class="options">
+  <div class="option" data-choice="large" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Keep Large</h3>
+      <p>Stays accessible and readable, especially for older users. Familiar to current users. Less content visible at once.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="compact" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Normalize to Compact</h3>
+      <p>Shows more content per screen — critical for the nutrient analysis panel with 20+ rows. Looks modern and professional. Standard for desktop apps.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<p class="subtitle" style="margin-top:12px;">Click your preference, then reply in the terminal.</p>

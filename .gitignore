@@ -1,0 +1,25 @@
+# --- 全域設定 ---
+.DS_Store
+Thumbs.db
+
+# --- Python / Django ---
+feed_calc_backend/.venv/
+feed_calc_backend/venv/
+**/__pycache__/
+feed_calc_backend/*.sqlite3
+feed_calc_backend/.env
+*.pyc
+
+# --- Node / Vue ---
+feed_calc_frontend/node_modules/
+feed_calc_frontend/dist/
+feed_calc_frontend/.env.local
+
+# --- Tauri ---
+feed_calc_frontend/src-tauri/target/
+feed_calc_frontend/src-tauri/gen/
+feed_calc_frontend/src-tauri/bin/
+
+# --- PyInstaller build output ---
+feed_calc_backend/build/
+feed_calc_backend/dist/

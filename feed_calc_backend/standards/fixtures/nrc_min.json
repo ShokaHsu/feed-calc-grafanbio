@@ -1,0 +1,28 @@
+[
+  {"model":"standards.species","pk":1,"fields":{"name_zh":"蛋雞","name_en":"Layer","slug":"layer"}},
+  {"model":"standards.species","pk":2,"fields":{"name_zh":"肉雞","name_en":"Broiler","slug":"broiler"}},
+  {"model":"standards.species","pk":3,"fields":{"name_zh":"肉豬","name_en":"Swine","slug":"swine"}},
+
+  {"model":"standards.productionstage","pk":1,"fields":{"species":1,"name_zh":"產蛋前","name_en":"Pre-lay","order":0}},
+  {"model":"standards.productionstage","pk":2,"fields":{"species":1,"name_zh":"產蛋期","name_en":"Laying","order":1}},
+  {"model":"standards.productionstage","pk":3,"fields":{"species":2,"name_zh":"第一期","name_en":"Starter","order":0}},
+  {"model":"standards.productionstage","pk":4,"fields":{"species":2,"name_zh":"第二期","name_en":"Grower","order":1}},
+  {"model":"standards.productionstage","pk":5,"fields":{"species":2,"name_zh":"第三期","name_en":"Finisher","order":2}},
+
+  {"model":"standards.nutrienttype","pk":1,"fields":{"key":"me","name_zh":"代謝能","unit":"kcal/kg","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":2,"fields":{"key":"cp","name_zh":"粗蛋白","unit":"%","data_type":"number"}},
+  {"model":"standards.nutrienttype","pk":3,"fields":{"key":"lys","name_zh":"離胺酸","unit":"%","data_type":"number"}},
+
+  {"model":"standards.nutrientstandard","pk":1,"fields":{
+    "species":1,"stage":2,"nutrient":1,"scope":"system","organization_id":null,"user":null,
+    "value_min":null,"value_target":2750,"value_max":null,"note":"Layer-Laying ME"
+  }},
+  {"model":"standards.nutrientstandard","pk":2,"fields":{
+    "species":1,"stage":2,"nutrient":2,"scope":"system","organization_id":null,"user":null,
+    "value_min":15.5,"value_target":16.5,"value_max":17.5,"note":"Layer-Laying CP"
+  }},
+  {"model":"standards.nutrientstandard","pk":3,"fields":{
+    "species":1,"stage":2,"nutrient":3,"scope":"system","organization_id":null,"user":null,
+    "value_min":null,"value_target":0.85,"value_max":null,"note":"Layer-Laying Lys"
+  }}
+]
