@@ -1,22 +1,15 @@
 use tauri_plugin_shell::ShellExt;
 
 #[tauri::command]
-fn save_csv(content: String, filename: String) -> Result<String, String> {
-    use std::path::PathBuf;
-    let home = std::env::var("USERPROFILE")
-        .or_else(|_| std::env::var("HOME"))
-        .map_err(|_| "找不到使用者目錄".to_string())?;
-    let downloads = PathBuf::from(&home).join("Downloads");
-    let dir = if downloads.exists() { downloads } else { PathBuf::from(&home) };
-    let path = dir.join(&filename);
-    std::fs::write(&path, content.as_bytes()).map_err(|e| e.to_string())?;
-    Ok(path.to_string_lossy().to_string())
+fn save_csv(content: String, path: String) -> Result<(), String> {
+    std::fs::write(&path, content.as_bytes()).map_err(|e| e.to_string())
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
   tauri::Builder::default()
     .plugin(tauri_plugin_shell::init())
+    .plugin(tauri_plugin_dialog::init())
     .invoke_handler(tauri::generate_handler![save_csv])
     .setup(|app| {
       // Start Django sidecar — Vue's loading screen polls the API and shows

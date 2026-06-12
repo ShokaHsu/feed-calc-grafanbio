@@ -215,11 +215,16 @@ const downloadCSV = async () => {
 
     if (window.__TAURI__) {
         try {
-            const savedPath = await window.__TAURI__.core.invoke('save_csv', {
-                content: bom + csvContent,
-                filename
+            const chosenPath = await window.__TAURI__.dialog.save({
+                defaultPath: filename,
+                filters: [{ name: 'CSV', extensions: ['csv'] }]
             })
-            ElMessage.success(`已儲存至 ${savedPath}`)
+            if (!chosenPath) return  // user cancelled
+            await window.__TAURI__.core.invoke('save_csv', {
+                content: bom + csvContent,
+                path: chosenPath
+            })
+            ElMessage.success(`已儲存至 ${chosenPath}`)
         } catch (e) {
             ElMessage.error('儲存失敗: ' + e)
         }
