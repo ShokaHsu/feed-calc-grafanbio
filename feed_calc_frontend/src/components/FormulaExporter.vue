@@ -104,7 +104,6 @@
 import { computed } from 'vue'
 import { Document, Printer } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
-import { isDesktopApp } from '@/utils/env'
 
 const props = defineProps({
   modelValue: Boolean,
@@ -214,7 +213,7 @@ const downloadCSV = async () => {
     const bom = '﻿'
     const filename = `${d.meta.recipeName || '配方'}_${d.meta.date}.csv`
 
-    if (isDesktopApp() && window.__TAURI__) {
+    if (window.__TAURI__) {
         try {
             const savedPath = await window.__TAURI__.invoke('save_csv', {
                 content: bom + csvContent,
