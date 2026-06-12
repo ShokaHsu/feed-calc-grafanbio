@@ -57,14 +57,14 @@
           <tr>
             <th style="width: 50%">原料名稱</th>
             <th style="width: 25%; text-align: right;">使用量 (kg)</th>
-            <th style="width: 25%; text-align: right;">佔比 (%)</th>
+            <th style="width: 25%; text-align: right;">成本 (NT$)</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="item in data.items" :key="item.id">
             <td>{{ item.name }}</td>
             <td class="text-right">{{ item.amount }}</td>
-            <td class="text-right">{{ item.percentage }}%</td>
+            <td class="text-right">{{ item.rowCost }}</td>
           </tr>
         </tbody>
       </table>
@@ -181,9 +181,9 @@ const downloadCSV = async () => {
     rows.push([])
 
     // Composition
-    rows.push([esc('原料名稱'), esc('使用量 (kg)'), esc('佔比 (%)')])
+    rows.push([esc('原料名稱'), esc('使用量 (kg)'), esc('成本 (NT$)')])
     d.items.forEach(item => {
-        rows.push([esc(item.name), esc(item.amount), esc(item.percentage)])
+        rows.push([esc(item.name), esc(item.amount), esc(item.rowCost)])
     })
     rows.push([])
 

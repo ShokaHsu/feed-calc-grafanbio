@@ -232,7 +232,8 @@ const openExportDialog = () => {
       },
       items: formulaItems.value.map(i => ({
         id: i.id, name: i.name, amount: i.amount,
-        percentage: totalW > 0 ? ((i.amount / totalW) * 100).toFixed(1) : '0.0'
+        percentage: totalW > 0 ? ((i.amount / totalW) * 100).toFixed(1) : '0.0',
+        rowCost: ((i.amount || 0) * (i.cost || 0)).toLocaleString(undefined, { maximumFractionDigits: 0 })
       })),
       totals: {
         weight: totalW.toFixed(1),
