@@ -22,7 +22,7 @@
       </el-col>
 
       <el-col :xs="24" :sm="8" :md="6">
-        <div class="input-label">2. 生長階段</div>
+        <div class="input-label">2. 畜禽階段</div>
         <el-select 
           v-model="selectedStage" 
           placeholder="選擇階段" 
@@ -40,7 +40,7 @@
       </el-col>
 
       <el-col :xs="24" :sm="8" :md="12">
-        <div class="input-label">3. 詳細規格</div>
+        <div class="input-label">3. 飼養標準</div>
         <el-select 
           v-model="targetStandardId" 
           :placeholder="placeholderText" 
@@ -76,9 +76,9 @@ const {
 const { setSpecies, setStage } = formulaStore
 
 const placeholderText = computed(() => {
-    if (!selectedSpecies.value) return '3. 請先選擇物種';
-    if (!selectedStage.value) return '3. 請選擇階段';
-    return '3. 選擇詳細標準';
+    if (!selectedSpecies.value) return '請先選擇物種';
+    if (!selectedStage.value) return '請選擇階段';
+    return '選擇飼養標準';
 })
 </script>
 

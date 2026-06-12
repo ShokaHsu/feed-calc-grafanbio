@@ -1,11 +1,19 @@
 import { defineStore } from 'pinia';
-import request from '@/api/request'; 
+import request from '@/api/request';
 import { ref } from 'vue';
 
+const PREMIX_KEY = 'feedcalc_premix_config'
+function loadPremixConfig() {
+  try { return JSON.parse(localStorage.getItem(PREMIX_KEY)) || {} } catch { return {} }
+}
+
 export const usePreferenceStore = defineStore('preference', () => {
-  // 狀態：儲存使用者喜歡的原料 ID 與養分顯示模式
-  const favoriteMaterialIds = ref([]); // e.g., [101, 205]
-  const nutrientDisplayMode = ref('basic'); // 'basic' | 'advanced'
+  const favoriteMaterialIds = ref([]);
+  const nutrientDisplayMode = ref('basic');
+
+  const _cfg = loadPremixConfig()
+  const vitaminPremixId = ref(_cfg.vitaminPremixId ?? null)
+  const mineralPremixId = ref(_cfg.mineralPremixId ?? null)
 
   // 初始化載入
   async function fetchFavorites() {
@@ -54,11 +62,24 @@ export const usePreferenceStore = defineStore('preference', () => {
     }
   }
 
+  function setPremixConfig(vitaminId, mineralId) {
+    vitaminPremixId.value = vitaminId ?? null
+    mineralPremixId.value = mineralId ?? null
+    localStorage.setItem(PREMIX_KEY, JSON.stringify({
+      vitaminPremixId: vitaminId ?? null,
+      mineralPremixId: mineralId ?? null
+    }))
+  }
+
   return {
     favoriteMaterialIds,
     nutrientDisplayMode,
+    vitaminPremixId,
+    mineralPremixId,
     fetchFavorites,
     saveBatchFavorites,
-    saveNutrientMode
+    saveNutrientMode,
+    setPremixConfig,
   };
+
 });

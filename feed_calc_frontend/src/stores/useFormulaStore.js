@@ -17,7 +17,13 @@ export const useFormulaStore = defineStore('formula', () => {
     const selectedSpecies = ref('')    // 目前選擇的物種
     const selectedStage = ref(null)    // 目前選擇的階段
     const targetStandardId = ref(null) // 目前選擇的標準 ID
-    
+
+    // --- 客戶 ---
+    const selectedCustomerId = ref(null)
+    const selectedCustomerName = ref('')
+    const customerList = ref([])
+    const customerListLoaded = ref(false)
+
     // --- 配方編輯區 ---
     const formulaItems = ref([]) // 已加入配方的原料列表
 
@@ -60,6 +66,24 @@ export const useFormulaStore = defineStore('formula', () => {
     
     const totalWeight = computed(() => formulaItems.value.reduce((s, i) => s + (i.amount || 0), 0))
     const totalCost = computed(() => formulaItems.value.reduce((s, i) => s + ((i.amount || 0) * (i.cost || 0)), 0))
+
+    const STAGE_EN = {
+        NURSERY: 'Nursery', GROWER: 'Grower', FINISHER: 'Finisher',
+        GESTATION: 'Gestation', LACTATION: 'Lactation',
+        BROILER_STARTER: 'BroilerStarter', BROILER_GROWER: 'BroilerGrower',
+        OTHER: 'Other'
+    }
+    const autoFormulaName = computed(() => {
+        const spMap = { SWINE: 'Swine', POULTRY: 'Poultry', RUMINANT: 'Ruminant', AQUA: 'Aqua', OTHER: 'Other' }
+        const sp = spMap[selectedSpecies.value] || ''
+        const st = STAGE_EN[selectedStage.value] || selectedStage.value || ''
+        if (!sp || !st) return ''
+        const today = new Date()
+        const dd = String(today.getDate()).padStart(2, '0')
+        const mm = String(today.getMonth() + 1).padStart(2, '0')
+        const yyyy = today.getFullYear()
+        return `${sp}_${st}_${dd}-${mm}-${yyyy}`
+    })
 
     // 取得目前選中的標準詳細資料
     const targetStandardData = computed(() => {
@@ -170,6 +194,53 @@ export const useFormulaStore = defineStore('formula', () => {
         formulaItems.value = []
     }
 
+    async function fetchCustomerList(force = false) {
+        if (customerListLoaded.value && !force) return
+        try {
+            const res = await request.get('auth/customers/')
+            customerList.value = res.data.results || res.data
+            customerListLoaded.value = true
+        } catch (e) {
+            console.error('載入客戶失敗', e)
+        }
+    }
+
+    function setCustomer(id, name) {
+        selectedCustomerId.value = id
+        selectedCustomerName.value = name
+    }
+
+    function clearCustomer() {
+        selectedCustomerId.value = null
+        selectedCustomerName.value = ''
+    }
+
+    function autoFillDefaults(vitaminPremixId = null, mineralPremixId = null) {
+        if (formulaItems.value.length > 0 || allIngredients.value.length === 0) return
+        const find = (primary, fallback = null) => {
+            const m = allIngredients.value.find(i => i.name.includes(primary))
+            if (m) return m
+            return fallback ? (allIngredients.value.find(i => i.name.includes(fallback)) || null) : null
+        }
+        const candidates = [
+            find('玉米'),
+            find('豆粕'),
+            find('磷酸二鈣', '磷酸一鈣'),
+            find('碳酸鈣', '石灰'),
+            find('食鹽'),
+            find('沙拉油', '植物油'),
+        ]
+        if (vitaminPremixId) {
+            const v = allIngredients.value.find(i => i.id === vitaminPremixId)
+            if (v) candidates.push(v)
+        }
+        if (mineralPremixId) {
+            const m = allIngredients.value.find(i => i.id === mineralPremixId)
+            if (m) candidates.push(m)
+        }
+        candidates.forEach(ing => { if (ing) addIngredient(ing) })
+    }
+
     function recalculate() {
         Object.keys(calculated).forEach(k => calculated[k] = 0)
         const w = totalWeight.value
@@ -189,28 +260,36 @@ export const useFormulaStore = defineStore('formula', () => {
     return {
         // State
         allStandards,
-        allIngredients, 
+        allIngredients,
         selectedSpecies,
         selectedStage,
         targetStandardId,
         formulaItems,
         calculated,
-        
+        selectedCustomerId,
+        selectedCustomerName,
+        customerList,
+
         // Getters
         totalWeight,
         totalCost,
         targetStandardData,
         availableStages,
         filteredStandards,
-        
+        autoFormulaName,
+
         // Actions
-        fetchStandards,     
+        fetchStandards,
         fetchAllIngredients,
-        setSpecies,         
-        setStage,           
+        setSpecies,
+        setStage,
         addIngredient,
         removeIngredient,
         clearFormula,
-        recalculate
+        recalculate,
+        fetchCustomerList,
+        setCustomer,
+        clearCustomer,
+        autoFillDefaults,
     }
 })
