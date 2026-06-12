@@ -285,9 +285,6 @@ const resetForm = () => {
 const fetchStandards = async () => {
     loading.value = true
     try {
-        const token = localStorage.getItem('auth_token');
-        if(token) axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-        
         const res = await request.get('standards/requirements/', {
             params: { q: searchQuery.value }
         })
